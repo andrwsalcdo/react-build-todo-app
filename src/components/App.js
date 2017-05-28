@@ -1,3 +1,4 @@
+import _ from 'lodash'; 
 import React, { Component } from 'react';
 import CreateTodo from './create-todo'; 
 import TodosList from './todos-list';
@@ -29,10 +30,20 @@ class App extends Component {
           createTask={this.createTask.bind(this)}
          />
         <TodosList 
-          todos={this.state.todos}   
+          todos={this.state.todos}  
+          toggleTask={this.toggleTask.bind(this)} 
         />
       </div>
     );
+  }
+
+  toggleTask(task) {
+    const foundTodo = _.find(this.state.todos, todo => todo.task === task);
+    
+    // switch value to opposite 
+    foundTodo.isCompleted = !foundTodo.isCompleted;
+
+    this.setState({ todos: this.state.todos });
   }
 
   createTask(task) {
