@@ -27,6 +27,7 @@ class App extends Component {
       <div>
         <h1>React Todos App</h1>
         <CreateTodo 
+          todos={this.state.todos}
           createTask={this.createTask.bind(this)}
          />
         <TodosList 
