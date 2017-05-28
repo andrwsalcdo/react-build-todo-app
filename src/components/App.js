@@ -33,6 +33,7 @@ class App extends Component {
           todos={this.state.todos}  
           toggleTask={this.toggleTask.bind(this)}
           saveTask={this.saveTask.bind(this)} 
+          deleteTask={this.deleteTask.bind(this)}
         />
       </div>
     );
@@ -61,6 +62,12 @@ class App extends Component {
 
     foundTodo.task = newTask; 
     this.setState({ todos: this.state.todos });  
+  }
+
+  deleteTask(taskToDelete) {
+    const removeTodo = _.remove(this.state.todos, todo => todo.task === taskToDelete); 
+
+    this.setState({ todos: this.state.todos }); 
   }
 }
 
