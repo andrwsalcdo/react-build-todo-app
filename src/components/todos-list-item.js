@@ -8,7 +8,19 @@ class TodosListItem extends Component {
             isEditing: false
         }; 
     }
+    
+    renderTaskSection() {
+        const { task, isCompleted } = this.props; 
 
+        const taskStyle = {
+            color: isCompleted ? 'green' : 'red',
+            cursor: 'pointer' 
+        };
+
+        return (
+            <td style={taskStyle}>{task}</td>            
+        );
+    }
     renderActionSection() {
         if (this.state.isEditing) {
             return (
@@ -30,7 +42,7 @@ class TodosListItem extends Component {
     render() {
         return (  
             <tr>
-                <td>{this.props.task}</td>
+                {this.renderTaskSection()}
                 {this.renderActionSection()}
             </tr>
         );

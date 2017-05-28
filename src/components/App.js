@@ -9,7 +9,7 @@ const todos = [
 }, 
 {
   task: 'Eat Dinner', 
-  isCompleted: false
+  isCompleted: true
 }
 ]; 
 
@@ -41,6 +41,7 @@ class App extends Component {
         isCompleted: false
       });
       this.setState({ todos: this.state.todos })
+
   }
 }
 
